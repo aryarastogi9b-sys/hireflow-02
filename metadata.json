@@ -1,0 +1,6 @@
+{
+  "name": "HireFlow",
+  "description": "AI recruitment intelligence platform for evidence-based candidate mapping, structured interview analysis, and transparent hiring evaluation reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
