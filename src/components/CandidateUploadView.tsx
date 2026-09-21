@@ -28,7 +28,7 @@ export const CandidateUploadView: React.FC = () => {
 
   const selectedJob = jobs.find(j => j.id === selectedJobId) || jobs[0];
 
-  const handleSampleResume = (type: 'senior' | 'incomplete' | 'ml') => {
+  const handleSampleResume = (type: 'senior' | 'incomplete' | 'ml' | 'frontend' | 'sre') => {
     if (type === 'senior') {
       setCandidateNameInput('Jonathan Vance');
       setResumeText(`JONATHAN VANCE
@@ -82,7 +82,7 @@ B.A. in Digital Arts | State College (2024)
 
 PROJECTS:
 - Personal Portfolio: Static website hosted on GitHub Pages.`);
-    } else {
+    } else if (type === 'ml') {
       setCandidateNameInput('Dr. Priya Sharma');
       setResumeText(`DR. PRIYA SHARMA
 Email: priya.sharma.ml@research.ai | Seattle, WA
@@ -98,6 +98,44 @@ Ph.D. in Computer Science (NLP & Information Retrieval) | Carnegie Mellon Univer
 
 SKILLS:
 Python, PyTorch, Vector Databases, Qdrant, Transformers, FastAPI, Docker`);
+    } else if (type === 'frontend') {
+      setCandidateNameInput('Zoe Sterling');
+      setResumeText(`ZOE STERLING
+Email: zoe.sterling.ui@designcraft.dev | New York, NY
+
+SUMMARY:
+Senior Frontend & Design Systems Engineer with 6 years experience building WCAG AAA compliant React component architectures and modern design tokens.
+
+SKILLS:
+TypeScript, React 19, Next.js, Tailwind CSS v4, Motion, Web Accessibility (WCAG AAA), Storybook, Radix UI
+
+WORK EXPERIENCE:
+Staff UI Systems Engineer | Prism Enterprise UX (2022 - Present)
+- Architected multi-brand token system consumed by 90+ engineers across 8 enterprise applications.
+- Enforced automated accessibility testing pipeline with axe-core, achieving 100% WCAG AAA rating with zero keyboard trap regressions.
+- Decreased front-end bundle size by 32% via modular tree-shaking and dynamic component code-splitting.
+
+EDUCATION:
+B.S. in Computer Science & Human-Computer Interaction | Cornell University (2020)`);
+    } else {
+      setCandidateNameInput('Kasper Lindholm');
+      setResumeText(`KASPER LINDHOLM
+Email: kasper.lindholm.sre@cloudops.io | Austin, TX
+
+SUMMARY:
+Staff Site Reliability Engineer with 7 years of production Kubernetes, multi-region Terraform infrastructure, and eBPF network observability experience.
+
+SKILLS:
+Kubernetes, Terraform / OpenTofu, eBPF, Cilium, Prometheus, Grafana, AWS, GCP, ArgoCD, Linux Kernel
+
+WORK EXPERIENCE:
+Staff SRE | GlobalMesh Infrastructure (2021 - Present)
+- Architected 14 multi-region Kubernetes clusters across AWS and GCP sustaining 99.995% uptime SLA at 90k req/sec.
+- Implemented Cilium eBPF service mesh for socket-level kernel packet routing, cutting p99 latency by 5.5ms.
+- Built declarative GitOps CI/CD deployment pipelines with ArgoCD and automated canary rollouts.
+
+CERTIFICATIONS:
+Certified Kubernetes Administrator (CKA), HashiCorp Certified Terraform Associate`);
     }
   };
 
@@ -233,28 +271,42 @@ Python, PyTorch, Vector Databases, Qdrant, Transformers, FastAPI, Docker`);
         </div>
 
         {/* Demo Preset Buttons */}
-        <div className="flex flex-wrap items-center gap-2 p-3 bg-slate-850 rounded-lg border border-slate-750">
+        <div className="flex flex-wrap items-center gap-2 p-3 bg-slate-850 rounded-lg border border-slate-755">
           <span className="text-xs text-slate-400 font-medium">Quick Demo Resumes:</span>
           <button
             type="button"
             onClick={() => handleSampleResume('senior')}
             className="text-xs px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 font-medium cursor-pointer"
           >
-            Load Senior Distributed Lead Resume
-          </button>
-          <button
-            type="button"
-            onClick={() => handleSampleResume('incomplete')}
-            className="text-xs px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 font-medium cursor-pointer"
-          >
-            Load Junior/Incomplete Resume (Missing Evidence)
+            Senior Distributed Lead
           </button>
           <button
             type="button"
             onClick={() => handleSampleResume('ml')}
             className="text-xs px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-teal-300 border border-slate-700 font-medium cursor-pointer"
           >
-            Load Ph.D. RAG/ML Resume
+            Ph.D. RAG/ML
+          </button>
+          <button
+            type="button"
+            onClick={() => handleSampleResume('frontend')}
+            className="text-xs px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 font-medium cursor-pointer"
+          >
+            Staff Frontend (Design Systems)
+          </button>
+          <button
+            type="button"
+            onClick={() => handleSampleResume('sre')}
+            className="text-xs px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-purple-300 border border-slate-700 font-medium cursor-pointer"
+          >
+            Staff SRE & eBPF
+          </button>
+          <button
+            type="button"
+            onClick={() => handleSampleResume('incomplete')}
+            className="text-xs px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 font-medium cursor-pointer"
+          >
+            Junior (Missing Evidence)
           </button>
         </div>
 

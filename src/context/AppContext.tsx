@@ -61,7 +61,7 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const STORAGE_KEY_PREFIX = 'hireflow_state_v1_';
+const STORAGE_KEY_PREFIX = 'hireflow_state_v2_';
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentView, setCurrentView] = useState<AppView>('dashboard');
@@ -92,7 +92,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       'cand-1': 'Candidate Alpha-318',
       'cand-2': 'Candidate Delta-592',
       'cand-3': 'Candidate Sierra-404',
-      'cand-4': 'Candidate Omega-721'
+      'cand-4': 'Candidate Omega-721',
+      'cand-5': 'Candidate Kappa-109',
+      'cand-6': 'Candidate Theta-845',
+      'cand-7': 'Candidate Zeta-612',
+      'cand-8': 'Candidate Lambda-531',
+      'cand-9': 'Candidate Sigma-914',
+      'cand-10': 'Candidate Rho-208',
+      'cand-11': 'Candidate Epsilon-370',
+      'cand-12': 'Candidate Gamma-492'
     };
     if (codenames[candidateId]) return codenames[candidateId];
 
